@@ -1,0 +1,139 @@
+@use './mixin' as *;
+
+nav {
+    background-color: white;
+
+    .container {
+        .con {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+
+            .logo {
+                    color: $main-color;
+                    font-size: 26px;
+                    font-weight: bold;
+                    height: 72px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                }
+
+
+            >.links {
+                padding: 0;
+                list-style: none;
+                display: flex;
+                margin: 0;
+
+                >li {
+                    >a {
+                        color: black;
+                        @extend %flex-center;
+                        padding: 0 30px;
+                        height: 72px;
+                        font-size: 18px;
+                        transition: $main-transition;
+                        overflow: hidden;
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 4px;
+                            background-color: $main-color;
+                            top: 0;
+                            left: -100%;
+                            transition: $main-transition;
+                        }
+
+                        &:hover {
+                            color: $main-color;
+                            background-color: #fafafa;
+
+                            &::before {
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+
+                >.ooo {
+                    &:hover {
+                        .other-links {
+                            opacity: 1;
+                            top: calc(100%);
+                            z-index: 1;
+                        }
+
+                    }
+
+                    >.other-links {
+                        position: absolute;
+                        @extend %flex-between;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        left: 0;
+                        padding: 30px;
+                        background-color: white;
+                        border-bottom: 3px solid $main-color;
+                        z-index: -1;
+                        top: calc(100% + 50px);
+                        opacity: 0;
+                        transition: top $main-transition, opacity $main-transition;
+
+                        >.links {
+                            list-style: none;
+                            padding: 0;
+                            margin: 0;
+
+                            >li {
+                                overflow: hidden;
+                                border-bottom: 1px solid #e9e6e6;
+
+                                >a {
+                                    position: relative;
+                                    color: #2196f3;
+                                    padding: 15px;
+                                    display: block;
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                    height: fit-content;
+                                    box-sizing: content-box;
+
+                                    &::before {
+                                        content: "";
+                                        position: absolute;
+                                        left: 0;
+                                        top: 0;
+                                        width: 0;
+                                        height: 100%;
+                                        background-color: #fafafa;
+                                        z-index: -1;
+                                        transition: $main-transition;
+                                    }
+
+                                    &:hover {
+                                        &::before {
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .img {
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

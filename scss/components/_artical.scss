@@ -1,0 +1,66 @@
+@use './mixin' as *;
+.artical {
+    padding-top: $main-padding-top ;
+    padding-bottom: $main-padding-bottom;
+
+    .container {
+        .artical-con {
+            h2 {
+                @extend %h2;
+            }
+
+            .boxes {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                .box-body {
+                    padding: 0 15px;
+                    margin-bottom: 40px;
+
+                    .box {
+                        transition: transform $main-transition, box-shadow $main-transition;
+                        box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+                        border-radius: 6px;
+                        overflow: hidden;
+
+                        &:hover {
+                            transform: translateY(-10px);
+                            box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+
+                        >div {
+                            padding: 20px;
+
+                            h3 {
+                                margin: 0;
+                            }
+
+                            p {
+                                margin: 10px 0;
+                                line-height: 1.5;
+                                color: #777;
+                            }
+                        }
+
+                        >a {
+                            display: block;
+                            padding: 20px;
+                            border-top: 1px solid #e6e6e7;
+                            width: 100%;
+                            color: $main-color;
+                            font-weight: bold;
+                        }
+
+                    }
+
+
+                }
+            }
+        }
+    }
+}

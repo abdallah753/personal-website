@@ -1,0 +1,113 @@
+@use './mixin' as *;
+
+.team {
+    padding-top: $main-padding-top;
+    padding-bottom: $main-padding-bottom;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    h2 {
+        @extend %h2;
+    }
+
+    .boxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+
+        .box {
+            position: relative;
+
+            .box-body {
+                padding-top: 60px;
+                @extend %flex-center;
+
+                img {
+                    width: calc(100% - 60px);
+                    transition: $main-transition;
+                    border-radius: 10px;
+                }
+
+                div {
+                    width: 60px;
+                    gap: 20px;
+                    flex-direction: column;
+                    @extend %flex-between;
+
+                    a {
+                        width: 100%;
+                        padding: 0 5px;
+                        @extend %flex-center;
+
+                        i {
+                            transition: $main-transition;
+                            color: #777;
+                        }
+
+                        &:hover {
+                            i {
+                                color: $main-color;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .info {
+                padding-left: 80px;
+
+                h3 {
+
+                    margin: 22px 0 0;
+                    color: $main-color;
+                    font-size: 22px;
+                    transition: $main-transition;
+                }
+
+                p {
+                    margin-top: 10px;
+                    margin-bottom: 25px;
+                }
+            }
+
+            &::before {
+                content: "";
+                background-color: #f3f3f3;
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                border-radius: 10px;
+                transition: $main-transition;
+            }
+
+            &::before {
+                width: calc(100% - 60px);
+                z-index: -2;
+            }
+
+            &::after {
+                @extend ::before;
+                z-index: -1;
+                background-color: #e4e4e4;
+                width: 0;
+            }
+
+            &:hover {
+                &::after {
+                    width: calc(100% - 60px);
+                }
+
+                .info {
+                    h3 {
+                        color: #777;
+                    }
+                }
+
+                img {
+                    filter: grayscale(100%);
+                }
+            }
+        }
+    }
+}

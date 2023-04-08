@@ -1,0 +1,83 @@
+@use './mixin' as *;
+
+
+.videos {
+    padding-top: $main-padding-top;
+    padding-bottom: $main-padding-bottom;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    h2 {
+        @extend %h2;
+    }
+
+    .container {
+        @extend %flex-center;
+        flex-wrap: wrap;
+        align-items: initial;
+        background-color: $section-background;
+        border: 1px solid #ddd;
+        position: relative;
+
+        .list {
+            background-color: white;
+
+            div {
+                display: flex;
+                justify-content: space-between;
+                padding: 20px;
+                background-color: #f4f4f4;
+                font-weight: bold;
+                color: $main-color;
+
+                i {
+                    font-weight: bold;
+                }
+            }
+
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    padding: 20px;
+                    border-top: 1px solid $section-background;
+                    cursor: pointer;
+                    transition: $main-transition;
+
+                    &:hover {
+                        background-color: #fafafa;
+                        color: $main-color;
+                    }
+
+                    span {
+                        display: block;
+                        margin-top: 10px;
+                        color: #777;
+                    }
+                }
+            }
+        }
+
+        .preview {
+            background-color: #e2e2e2;
+            padding: 10px;
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            justify-content: space-between;
+
+            img {
+                width: 100%;
+            }
+
+            p {
+                padding: 20px;
+                background-color: white;
+                margin-top: 10px;
+            }
+
+        }
+    }
+}

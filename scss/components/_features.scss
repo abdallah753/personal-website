@@ -1,0 +1,196 @@
+@use './mixin' as *;
+
+.features {
+    padding-top: $main-padding-top;
+    padding-bottom: $main-padding-bottom;
+
+    >h2 {
+        @extend %h2;
+    }
+
+    >.container {
+        >.features {
+            @extend %flex-center;
+            flex-wrap: wrap;
+            padding: 0;
+
+            >.box1 {
+                padding: 0 15px;
+                margin-bottom: 30px;
+
+                >.feature1 {
+                    text-align: center;
+                    border: 1px solid #ccc;
+
+                    >.img {
+                        position: relative;
+                        overflow: hidden;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            top: -1px;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgb(244 64 54 / 60%);
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .content {
+                        h2 {
+                            position: relative;
+                            font-size: 40px;
+                            margin: 35px auto;
+                            width: fit-content;
+
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                bottom: -20px;
+                                left: 15px;
+                                height: 5px;
+                                width: calc(100% - 30px);
+                                background-color: #f44036;
+                            }
+                        }
+
+                        p {
+                            line-height: 2;
+                            font-size: 20px;
+                            margin: 30px 0;
+                            padding: 25px;
+                            color: #777;
+                        }
+
+                        a {
+                            color: #f44036;
+                            background: linear-gradient(to right, #f44036 50%, white 50%);
+                            background-size: 200% 100%;
+                            background-position: right bottom;
+                            display: block;
+                            border: 3px solid #f44036;
+                            width: fit-content;
+                            margin: 0 auto 30px;
+                            font-weight: bold;
+                            font-size: 22px;
+                            padding: 10px 30px;
+                            border-radius: 6px;
+                            transition: $main-transition;
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                width: 0;
+                                height: 100%;
+                                background-color: #f44036;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        a {
+                            background-position: left bottom;
+                            color: white;
+                        }
+
+                        >.img {
+                            &::after {
+                                border-width: 170px 500px 170px 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .box2 {
+                @extend .box1;
+
+                >.feature2 {
+                    @extend .feature1;
+
+                    >.img {
+                        &::before {
+                            background-color: rgb(0 150 136 / 60%);
+                        }
+                    }
+
+                    >.content {
+                        h2 {
+                            &::after {
+                                background-color: #009688;
+                            }
+                        }
+
+                        a {
+                            color: #009688;
+                            background: linear-gradient(to right, #009688 50%, white 50%);
+                            background-size: 200% 100%;
+                            background-position: right bottom;
+                            border: 3px solid #009688;
+
+                            &::before {
+                                background-color: #009688;
+                            }
+                        }
+
+                    }
+
+                    &:hover {
+                        a {
+                            background-position: left bottom;
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            .box3 {
+                @extend .box1;
+
+                >.feature3 {
+                    @extend .feature1;
+
+                    >.img {
+                        &::before {
+                            background-color: rgb(3 169 244 / 60%);
+                            ;
+                        }
+                    }
+
+                    >.content {
+                        h2 {
+                            &::after {
+                                background-color: #03a9f4;
+                            }
+                        }
+
+                        a {
+                            color: #03a9f4;
+                            background: linear-gradient(to right, #03a9f4 50%, white 50%);
+                            background-size: 200% 100%;
+                            background-position: right bottom;
+                            border: 3px solid #03a9f4;
+
+                            &::before {
+                                background-color: #03a9f4;
+                            }
+                        }
+
+                    }
+
+                    &:hover {
+                        a {
+                            background-position: left bottom;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

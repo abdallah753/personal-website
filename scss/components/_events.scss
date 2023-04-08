@@ -1,0 +1,119 @@
+@use './mixin' as *;
+
+
+.events {
+    padding-top: $main-padding-top;
+    padding-bottom: $main-padding-bottom;
+    position: relative;
+
+    .dots1 {
+        position: absolute;
+        top: 200px;
+        right: 0;
+    }
+
+    .dots2 {
+        position: absolute;
+        bottom: 200px;
+        left: 0;
+    }
+
+    h2 {
+        @extend %h2;
+    }
+
+    .container {
+        @extend %flex-center;
+
+        h3 {
+            text-align: center;
+            margin: 40px 0 0;
+            font-size: 30px;
+        }
+
+        p {
+            margin: 20px;
+            text-align: center;
+            line-height: 1.7;
+            font-size: 19px;
+            color: #777;
+        }
+
+        .data {
+            @extend %flex-center;
+            flex-direction: column;
+
+            .time {
+                @extend %flex-center;
+                gap: 10px;
+
+                .unit {
+                    border: 1px solid #d4d4d4;
+                    border-radius: 6px;
+                    text-align: center;
+                    width: 75px;
+                    transition: $main-transition;
+
+                    :first-child {
+                        display: block;
+                        font-size: 35px;
+                        padding: 15px;
+                        color: $main-color;
+                        font-weight: bold;
+                    }
+
+                    :last-child {
+                        display: block;
+                        padding: 8px 10px;
+                        font-size: 13px;
+                        border-top: 1px solid #d4d4d4;
+                    }
+
+                    &:hover {
+                        border-color: $main-color;
+
+                        :last-child {
+                            border-color: $main-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .subscribe {
+        width: 100%;
+        margin-top: 50px;
+
+        form {
+            width: 600px;
+            margin: 20px auto;
+            padding: 30px 40px;
+            background-color: #f6f5f5;
+            border-radius: 50px;
+            display: flex;
+            gap: 20px;
+
+            :first-child {
+                padding: 20px;
+                border-radius: 50px;
+                outline: none;
+                border: none;
+                flex: 1;
+                caret-color: $main-color;
+            }
+
+            :last-child {
+                border-radius: 50px;
+                border: none;
+                background-color: $main-color;
+                color: white;
+                font-weight: bold;
+                padding: 20px;
+                cursor: pointer;
+                transition: $main-transition;
+            }
+        }
+    }
+
+}

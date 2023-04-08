@@ -1,0 +1,66 @@
+@use './mixin' as *;
+
+.test {
+    padding-top: $main-padding-top;
+    padding-bottom: $main-padding-bottom;
+    background-color: $section-background;
+
+    >h2 {
+        @extend %h2;
+    }
+
+    .container {
+        @extend %flex-center;
+        flex-wrap: wrap;
+
+        >.box {
+            padding: 0 15px;
+            margin-bottom: 30px;
+
+            .box-body {
+                padding: 20px;
+                background-color: white;
+                box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+                border-radius: 6px;
+                position: relative;
+
+                img {
+                    position: absolute;
+                    right: -10px;
+                    top: -50px;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    border: 10px solid $section-background;
+                }
+
+                h3 {
+                    margin: 0 0 10px;
+                }
+
+                div {
+                    i {
+                        color: #ffc107;
+                    }
+
+                    .not {
+                        color: black;
+                    }
+                }
+
+                span {
+                    color: #777;
+                    margin-bottom: 10px;
+                    display: block;
+                }
+
+                p {
+                    line-height: 1.5;
+                    color: #777;
+                    margin-top: 10px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,90 @@
+@use './mixin' as *;
+
+
+.stats {
+    padding-top: $main-padding-top;
+    padding-bottom: $main-padding-bottom;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    background-image: url(/images/discount-background1.jpg);
+    background-size: cover;
+    min-height: 300px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255 255 255 / 95%);
+    }
+
+    h2 {
+        font-weight: bold;
+        font-size: 40px;
+        width: fit-content;
+        margin: 0 auto 50px;
+        position: relative;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+
+        .box {
+            background-color: white;
+            padding: 30px 15px;
+            text-align: center;
+            position: relative;
+            opacity: 0.8;
+            transition: $main-transition;
+
+            .number {
+                display: block;
+                font-size: 50px;
+                font-weight: bold;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .text {
+                color: $main-color;
+                font-style: italic;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: 2px;
+                background-color: $main-color;
+                transition: 1s;
+                height: 0;
+            }
+
+            &::before {
+                bottom: 0;
+                left: 0;
+            }
+
+            &::after {
+                top: 0;
+                right: 0;
+            }
+
+            &:hover {
+
+                &::before,
+                &::after {
+                    height: 100%;
+                }
+            }
+        }
+
+    }
+}

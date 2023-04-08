@@ -1,0 +1,169 @@
+
+$main-color: #2196f3;
+$main-color-alt: #1787e0;
+$main-transition: 0.3s;
+$main-padding-top: 100px;
+$main-padding-bottom: 100px;
+$section-background: #ececec;
+$grid: 12;
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    margin: 0;
+}
+
+%flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-between{
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+}
+
+%bolits{
+    content: "";
+        width: 12px;
+        height: 12px;
+        background-color: $main-color;
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: -1;
+        transition: 0.5s;
+}
+
+%h2{
+    text-transform: uppercase;
+        margin: 0 auto 80px;
+        border: 2px solid black;
+        padding: 10px 20px;
+        font-size: 30px;
+        width: fit-content;
+        position: relative;
+        z-index: 1;
+        transition: $main-transition;
+        transition-delay: 0.3s;
+    
+        &::before {
+            @extend %bolits;
+            left: -30px;
+        }
+    
+        &::after {
+            @extend %bolits;
+            right: -30px;
+        }
+    
+        &:hover {
+            color: white;
+            border: 2px solid white;
+    
+            &::after {
+                animation: right-move 0.5s linear forwards;
+            }
+    
+            &::before {
+                animation: left-move 0.5s linear forwards;
+            }
+        }
+}
+
+%skill{
+    height: 30px;
+        background-color: #eee;
+        position: relative;
+    transition-duration: 0.5s ;
+        &::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            background-color: $main-color;
+        }
+}
+@keyframes up-and-down {
+
+    0%,
+    100% {
+        top: 0;
+    }
+
+    50% {
+        top: -50px;
+    }
+}
+
+@keyframes left-move {
+    50% {
+        left: 0;
+        width: 12px;
+        height: 12px;
+    }
+
+    100% {
+        left: 0;
+        border-radius: 0;
+        width: 50%;
+        height: 100%;
+    }
+}
+
+@keyframes right-move {
+    50% {
+        right: 0;
+        width: 12px;
+        height: 12px;
+    }
+
+    100% {
+        right: 0;
+        border-radius: 0;
+        width: 50%;
+        height: 100%;
+    }
+}
+
+@keyframes flashing {
+
+    0%,
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+    }
+}
+@mixin breakpoints($point) {
+    @if $point == "mobile"{
+        @media (max-width: 767px) {
+                @content;
+            }
+    }
+    @else if $point ==small {
+        @media (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }
+
+    @else if $point ==medium {
+        @media (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        }
+    }
+
+    @else if $point ==large {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+}
+
+

@@ -1,0 +1,98 @@
+@use './mixin' as *;
+
+.services {
+    padding-top: $main-padding-top;
+    padding-bottom: $main-padding-bottom;
+    background-color: $section-background;
+
+    h2 {
+        @extend %h2;
+    }
+
+    >.container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 40px;
+
+        >.box {
+            background-color: white;
+            box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+            counter-increment: services;
+            transition: var(--main-transition);
+            position: relative;
+            transition: $main-transition;
+
+            i {
+                margin: 30px auto 20px;
+                display: block;
+                text-align: center;
+                color: #d5d5d5;
+            }
+
+            h3 {
+                text-align: center;
+                margin: 20px 0 40px;
+                font-size: 25px;
+                color: $main-color;
+            }
+
+            div {
+                @extend %flex-between;
+                position: relative;
+                background-color: #f9f9f9;
+
+                p {
+                    position: relative;
+                    background-color: $main-color;
+                    color: white;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 100px;
+                    font-size: 30px;
+                    font-weight: bold;
+                    padding: 8px;
+                    padding-left: 30px;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        background-color: #d5d5d5;
+                        top: 0;
+                        left: 80px;
+                        width: 50px;
+                        height: calc(100% + 0.4px);
+                        transform: skewX(-30deg);
+                    }
+                }
+
+                a {
+                    padding-right: 15px;
+                    right: 0;
+                    color: $main-color;
+                }
+            }
+
+            &::before {
+                content: "";
+                left: 50%;
+                transform: translateX(-50%);
+                height: 3px;
+                top: -3px;
+                background-color: $main-color;
+                position: absolute;
+                width: 0;
+                transition: $main-transition;
+            }
+
+            &:hover {
+                transform: translatey(-15px);
+
+                &::before {
+                    transition: $main-transition;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

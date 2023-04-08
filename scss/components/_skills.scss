@@ -1,0 +1,96 @@
+@use './mixin' as *;
+
+
+.our-skills {
+    padding-top: $main-padding-top;
+    padding-bottom: $main-padding-bottom;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    h2 {
+        @extend %h2;
+    }
+
+    .ss {
+        @extend %flex-center;
+        flex-wrap: wrap;
+    }
+
+    .img {
+        img {
+            width: 100%;
+        }
+    }
+
+    .skills {
+        .skill h3 {
+            @extend %flex-between;
+            margin: 15px 0;
+
+            span {
+                font-size: 12px;
+                border: 1px solid #ccc;
+                padding: 3px 5px;
+                border-radius: 4px;
+                color: $main-color;
+            }
+        }
+
+        .skill .html {
+            &::before {
+                width: 80%;
+            }
+
+            @extend %skill;
+        }
+
+        .skill .css {
+            &::before {
+                width: 80%;
+            }
+
+            @extend %skill;
+        }
+
+        .skill .javascript {
+            &::before {
+                width: 90%;
+            }
+
+            @extend %skill;
+        }
+
+        .skill .bootstrap {
+            &::before {
+                width: 70%;
+            }
+
+            @extend %skill;
+        }
+
+        .skill .react {
+            &::before {
+                width: 80%;
+            }
+
+            @extend %skill;
+        }
+
+        .skill .redux {
+            &::before {
+                width: 75%;
+            }
+
+            @extend %skill;
+        }
+
+        .skill .sass {
+            &::before {
+                width: 80%;
+            }
+
+            @extend %skill;
+        }
+
+    }
+}
